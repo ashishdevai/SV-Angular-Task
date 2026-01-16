@@ -1,0 +1,127 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  background: #ffffff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.logo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ===== MENU ===== */
+.menu {
+  list-style: none;
+}
+
+/* MAIN MENU ITEM */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: orange;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #334155;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===== SUB MENU ===== */
+.submenu {
+  background: #ffffff;
+  margin: 5px 0 12px 0;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.submenu li {
+  list-style: none;
+  padding: 8px 0;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submenu li:hover {
+  color: #2563eb;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  flex: 1;
+  background: #ffffff;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  height: 60px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user small {
+  display: block;
+  color: gray;
+}
+
+/* ===== DASHBOARD CARDS ===== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+}
+
+.card {
+  width: 250px;
+  padding: 30px;
+  color: white;
+  border-radius: 10px;
+}
+
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+/* CARD COLORS */
+.card1 { background: chocolate; }
+.card2 { background: darkslategray; }
+.card3 { background: steelblue; }
+.card4 { background: slategray; }

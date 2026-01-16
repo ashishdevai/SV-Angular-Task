@@ -1,0 +1,208 @@
+<form class="company-form">
+
+  <!-- ================= HEADER ================= -->
+  <div class="page-header">Company</div>
+
+  <div class="section-header">Add Company Details</div>
+  <!-- {{userList | json}} -->
+
+  <!-- ================= COMPANY DETAILS ================= -->
+  <div class="form-grid">
+
+    <div class="form-group">
+      <label>Select Country <span>*</span></label>
+      <select>
+        <option>Select Country</option>
+        <ul>
+          <li>India</li>
+          <li>USA</li>
+        </ul>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select State <span>*</span></label>
+      <select>
+        <option>Select State</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select District <span>*</span></label>
+      <select>
+        <option>Select District</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select City <span>*</span></label>
+      <select>
+        <option>Select City</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Pin Code <span>*</span></label>
+      <input type="text" placeholder="Pin Code">
+    </div>
+
+    <div class="form-group">
+      <label>Company <span>*</span></label>
+      <input type="text" placeholder="Company">
+    </div>
+
+    <div class="form-group">
+      <label>Company Short Name <span>*</span></label>
+      <input type="text" placeholder="Company Short Name">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address <span>*</span></label>
+      <input type="email" placeholder="Email Address">
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number <span>*</span></label>
+      <input type="text" placeholder="Phone Number">
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number <span>*</span></label>
+      <input type="text" placeholder="9559123391">
+    </div>
+
+    <div class="form-group">
+      <label>Company GSTIN Number <span>*</span></label>
+      <input type="text" placeholder="Company GSTIN Number">
+    </div>
+
+    <div class="form-group">
+      <label>Company PAN Number <span>*</span></label>
+      <input type="text" placeholder="Company PAN Number">
+    </div>
+
+    <div class="form-group">
+      <label>Registration Date <span>*</span></label>
+      <input type="date">
+    </div>
+
+    <div class="form-group">
+      <label>Register Id Number <span>*</span></label>
+      <input type="text" placeholder="Register Id Number">
+    </div>
+
+    <div class="form-group">
+      <label>CIN Number <span>*</span></label>
+      <input type="text" placeholder="CIN Number">
+    </div>
+
+  </div>
+
+  <!-- ================= ADDRESS ================= -->
+  <div class="form-grid two-column">
+    <div class="form-group">
+      <label>Address <span>*</span></label>
+      <input type="text" placeholder="Address">
+    </div>
+  </div>
+
+  <!-- ================= DOCUMENT UPLOAD ================= -->
+  <div class="section-header">Upload Company Document</div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label>GST Image <span>*</span></label>
+      <input type="file">
+    </div>
+
+    <div class="form-group">
+      <label>Pan Card Image <span>*</span></label>
+      <input type="file">
+    </div>
+
+    <div class="form-group">
+      <label>LOGO Image <span>*</span></label>
+      <input type="file">
+    </div>
+  </div>
+
+  <!-- ================= SPOC DETAILS ================= -->
+  <div class="section-header">Add Company SPOC Details</div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label>SPOC Name <span>*</span></label>
+      <input type="text" placeholder="SPOC Name">
+    </div>
+
+    <div class="form-group">
+      <label>SPOC Email Address <span>*</span></label>
+      <input type="email" placeholder="SPOC Email Address">
+    </div>
+
+    <div class="form-group">
+      <label>SPOC Mobile Number <span>*</span></label>
+      <input type="text" placeholder="SPOC Mobile Number">
+    </div>
+  </div>
+
+  <!-- ================= SPOC PROFILE PIC ================= -->
+  <div class="form-grid one-column">
+    <div class="form-group">
+      <label>SPOC Profile Pic <span>*</span></label>
+      <input type="file">
+    </div>
+  </div>
+
+  <!-- ================= SAVE BUTTON ================= -->
+  <div class="form-actions">
+    <button type="submit" class="btn-save">Save</button>
+  </div>
+
+</form>
+<!-- {{userList | json}} -->
+
+
+<!-- ============ User Table START ============ -->
+
+<div class="">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h6 class="mb-0">User List</h6>
+
+      <!-- Search -->
+      <input type="text" class="form-control form-control-sm w-25" placeholder="Search..." [(ngModel)]="searchText" />
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-hover mb-0 align-middle">
+        <thead class="table-light">
+          <tr>
+            <th (click)="sortBy('id')" class="sortable">ID</th>
+            <th (click)="sortBy('name')" class="sortable">Name</th>
+            <th (click)="sortBy('username')" class="sortable">Username</th>
+            <th (click)="sortBy('email')" class="sortable">Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of filteredUsers()">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+
+          <!-- Empty State -->
+          <tr *ngIf="filteredUsers().length === 0">
+            <td colspan="4" class="text-center text-muted py-4">
+              No users found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============ User Table START ============ -->

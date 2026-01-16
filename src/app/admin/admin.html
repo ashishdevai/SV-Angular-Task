@@ -1,0 +1,133 @@
+<!-- <router-outlet></router-outlet> -->
+ <div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">LOGO</h2>
+
+    <ul class="menu">
+
+      <!-- Dashboard -->
+      <li class="menu-item" (click)="toggle('dashboard')">
+        <span>Dashboard</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'dashboard'" class="submenu">
+        <li>Dashboards</li>
+      </ul>
+
+      <!-- Masters -->
+      <li class="menu-item" (click)="toggle('masters')">
+        <span>Masters</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'masters'" class="submenu">
+        <li (click)="moveTo('company')">Company</li>
+        <li (click)="moveToCocompany('cocompany')">Co-Company</li>
+        <li>Vendor</li>
+        <li>Branch</li>
+        <li>Location</li>
+        <li>Category</li>
+        <li>Food Type</li>
+        <li>Inventory Type</li>
+        <li>Table</li>
+        <li>Time</li>
+        <li>Coupon</li>
+        <li>Machine</li>
+        <li>Tax Name</li>
+      </ul>
+
+      <!-- Users -->
+      <li class="menu-item" (click)="toggle('users')">
+        <span>Users</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'users'" class="submenu">
+        <li>Users</li>
+      </ul>
+
+      <!-- Catalogue -->
+      <li class="menu-item" (click)="toggle('catalogue')">
+        <span>Catalogue</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'catalogue'" class="submenu">
+        <li>Add Catalogue</li>
+        <li>Add Menu Price</li>
+      </ul>
+
+      <!-- Inventory -->
+      <li class="menu-item" (click)="toggle('inventory')">
+        <span>Inventory</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'inventory'" class="submenu">
+        <li>Stock In</li>
+        <li>Pan Inventory</li>
+      </ul>
+
+      <!-- Customers -->
+      <li class="menu-item" (click)="toggle('customers')">
+        <span>Customers</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'customers'" class="submenu">
+        <li>Customer Details</li>
+      </ul>
+
+      <!-- Reports -->
+      <li class="menu-item" (click)="toggle('reports')">
+        <span>Reports</span>
+        <img src="Expand Arrow.png" class="arrow">
+      </li>
+      <ul *ngIf="openMenu === 'reports'" class="submenu">
+        <li>Generate Reports</li>
+      </ul>
+
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="right">
+        <span class="bell">🔔</span>
+        <div class="user" (click)="toggleProfileMenu()">
+          <strong>Ashish Dubey</strong>
+          <small>Super Admin</small>
+        </div>
+      </div>
+      <div class="header">
+
+  <!-- RIGHT SIDE -->
+  <div class="header-right">
+
+    <!-- DROPDOWN CARD -->
+    <div class="profile-card" *ngIf="showProfileMenu">
+
+      <div class="profile-header">
+        
+      </div>
+
+      <ul>
+        <li>👤 Account</li>
+        <li>⚙️ Settings</li>
+        <li>🔒 Privacy</li>
+        <li>❓ Help center</li>
+        <li class="logout" (click)="logout()">↪ Sign out</li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+    </header>
+
+    <!-- // Sare component apne box router me rakh lega -->
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>
