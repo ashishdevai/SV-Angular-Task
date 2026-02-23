@@ -94,8 +94,8 @@
       <div class="right">
         <span class="bell">🔔</span>
         <div class="user" (click)="toggleProfileMenu()">
-          <strong>Ashish Dubey</strong>
-          <small>Super Admin</small>
+          <strong>{{loggedInAdmin?.name}}</strong>
+          <small>{{loggedInAdmin?.role}}</small>
         </div>
       </div>
       <div class="header">

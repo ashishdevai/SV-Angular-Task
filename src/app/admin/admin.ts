@@ -11,6 +11,8 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class Admin {
 
+  loggedInAdmin: any = sessionStorage.getItem('adminData') ? JSON.parse(sessionStorage.getItem('adminData') || '{}') : null;
+
   constructor(private _router: Router) { }
 
   /* ===== SIDEBAR ===== */
@@ -41,6 +43,17 @@ export class Admin {
   }
 
   logout() {
-    this._router.navigate(['/login']);
+  // remove login flag
+  localStorage.removeItem('isLoggedIn');
+
+  // remove token
+  localStorage.removeItem('token');
+
+  // clear session
+  sessionStorage.clear();
+
+  // navigate
+  this._router.navigate(['/login']);
   }
+
 }

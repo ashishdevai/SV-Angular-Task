@@ -17,7 +17,12 @@
   width: 220px;
   background: #ffffff;
   padding: 20px;
-  overflow-y: auto;
+
+  position: fixed;   /* ⭐ sidebar fixed ho jayega */
+  top: 0;
+  left: 0;
+  height: 100vh;     /* full height */
+  overflow-y: auto;  /* agar menu bada ho to scroll */
 }
 
 .logo {
@@ -77,6 +82,9 @@
 .main {
   flex: 1;
   background: #ffffff;
+  margin-left: 220px;  /* ⭐ sidebar width */
+  height: 100vh;
+  overflow-y: auto;    /* ⭐ sirf main scroll kare */
 }
 
 /* ===== TOP BAR ===== */
@@ -197,3 +205,9 @@
   color: red;
   font-weight: 500;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;  /* ⭐ pura page scroll band */
+}
+

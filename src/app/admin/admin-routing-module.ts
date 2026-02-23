@@ -4,6 +4,7 @@ import { Admin } from './admin';
 import { Dashboard } from './dashboard/dashboard';
 import { Company } from './company/company';
 import { CoCompany } from './co-company/co-company';
+import { CompanyView } from './company-view/company-view'; // ✅ ADD
 
 export const routes: Routes = [
   {
@@ -14,10 +15,11 @@ export const routes: Routes = [
       { path: 'dashboard', component: Dashboard },
       { path: 'company', component: Company },
       { path: 'cocompany', component: CoCompany },
+
+      // 🔥 YAHI ADD KARNA HAI
+      { path: 'company-view', component: CompanyView }
     ]
-  },
-
-
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,119 @@
+<div class="company-view" *ngIf="companyData">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h2>Company Details</h2>
+    <span class="status" [ngClass]="companyData.approvalStatus">
+      {{ companyData.approvalStatus }}
+    </span>
+  </div>
+
+  <!-- COMPANY INFO -->
+  <div class="card">
+    <h3>Basic Information</h3>
+
+    <div class="grid">
+      <div>
+        <label>Name</label>
+        <p>{{ companyData.name }}</p>
+      </div>
+
+      <div>
+        <label>Mobile</label>
+        <p>{{ companyData.mobileNo }}</p>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <p>{{ companyData.email }}</p>
+      </div>
+
+      <div>
+        <label>GSTIN</label>
+        <p>{{ companyData.gstin }}</p>
+      </div>
+
+      <div>
+        <label>PAN</label>
+        <p>{{ companyData.pan }}</p>
+      </div>
+
+      <div>
+        <label>Registration No</label>
+        <p>{{ companyData.regNumber }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDRESS -->
+  <div class="card">
+    <h3>Address</h3>
+
+    <div class="grid">
+      <div>
+        <label>Address</label>
+        <p>{{ companyData.address?.addrline }}</p>
+      </div>
+
+      <div>
+        <label>Country</label>
+        <p>{{ companyData.address?.country }}</p>
+      </div>
+
+      <div>
+        <label>State</label>
+        <p>{{ companyData.address?.state }}</p>
+      </div>
+
+      <div>
+        <label>District</label>
+        <p>{{ companyData.address?.district }}</p>
+      </div>
+
+      <div>
+        <label>City</label>
+        <p>{{ companyData.address?.city }}</p>
+      </div>
+
+      <div>
+        <label>Pin Code</label>
+        <p>{{ companyData.address?.pincode }}</p>
+      </div>
+    </div>
+  </div>
+     <!-- CONTACT DETAILS -->
+   <div class="card">
+      <h3>Contact Details</h3>
+
+      <div class="grid">
+
+        <div>
+          <label>Phone</label>
+          <p>{{ companyData.contactNo }}</p>
+        </div>
+
+        <div>
+         <label>Mobile</label>
+         <p>{{ companyData.mobileNo }}</p>
+       </div>
+
+       <div>
+        <label>Contact Person</label>
+        <p>{{ companyData.contactPerson.name }}</p>
+       </div>
+
+       <div>
+        <label>Contact Email</label>
+        <p>{{ companyData.contactPerson.email }}</p>
+       </div>
+
+       <div>
+        <label>Contact Mobile</label>
+        <p>{{ companyData.contactPerson.mobile }}</p>
+       </div>
+
+      </div>
+    </div>
+
+
+</div>

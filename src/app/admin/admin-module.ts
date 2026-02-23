@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing-module';
 import { RouterOutlet } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     RouterOutlet,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    HttpClientModule
+  ],
 })
 export class AdminModule { }
