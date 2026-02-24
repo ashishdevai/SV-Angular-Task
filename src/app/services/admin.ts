@@ -92,5 +92,9 @@ registerCoCompany(payload: any) {
   return this.http.post(this.CO_COMPANY_API, payload);
 }
 
-
+ getCoCompanyList(){
+  return this.http.get(
+    'https://dev-backend-pos.beanboutiques.com/api/group/get/list?GroupType=CoCompany&ApprovalStatus=PENDING&ApprovalStatus=APPROVED&ApprovalStatus=REJECTED&IsActive=true&IsActive=false'
+  );
+}
 }

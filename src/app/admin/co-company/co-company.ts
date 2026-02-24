@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Admin } from '../../services/admin';
@@ -12,7 +12,7 @@ import { Admin } from '../../services/admin';
 })
 export class CoCompany implements OnInit {
 
-  constructor(private adminService: Admin) {}
+  constructor(private adminService: Admin, private cdr: ChangeDetectorRef) {}
 
   /* ========= FORM ========= */
   form: any = {
@@ -58,6 +58,7 @@ coCompanyTable: any[] = [];
   ngOnInit(): void {
     this.getCompanyList();
     this.getCountries();
+    this.getCoCompanyList();
   }
 
   /* ========= COMPANY ========= */
@@ -167,24 +168,21 @@ coCompanyTable: any[] = [];
     if (this.profileFile) formData.append('ProfileImage', this.profileFile);
 
     this.adminService.registerCoCompany(formData).subscribe({
-      next: () => {
+      next: (res: any) => {
+
        alert('✅ CoCompany Registered');
-         // 🔥 TABLE me turant show
-        this.coCompanyTable.unshift({
-        name: this.form.name,
-        mobile: this.form.mobile,
-        company: this.selectedCompanyId,
-        country: this.selectedCountryId,
-        state: this.selectedStateId,
-        district: this.selectedDistrictId,
-        city: this.selectedCityId,
-        pinCode: this.form.pinCode
-       });
+        this.getCoCompanyList();
+      this.cdr.markForCheck();
+
+       console.log('CoCompany Response', res);
+
+         /* 🔥 BACKEND RESPONSE TABLE ME ADD */
+      //  if (res?.data) {
+      //  this.coCompanyTable.unshift(res.data);
+      //  }
 
        this.resetForm();
-
-
-      },
+     },
       error: (err) => {
         console.error(err);
         alert('❌ Error');
@@ -218,5 +216,16 @@ coCompanyTable: any[] = [];
   this.stateList = [];
   this.districtList = [];
   this.cityList = [];
+}
+
+
+getCoCompanyList(){
+  this.adminService.getCoCompanyList().subscribe({
+    next:(res: any)=>{
+      this.coCompanyTable = res?.data ?? [];
+      this.cdr.markForCheck();
+      console.log("Co Company List:", this.coCompanyTable);
+    }
+  })
 }
 }

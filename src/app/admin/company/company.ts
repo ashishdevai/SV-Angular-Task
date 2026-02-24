@@ -341,7 +341,7 @@ export class Company implements OnInit {
           pinCode: this.companyForm.pinCode
         });
       },
-      error: (err) => {
+      error: (err:any) => {
         console.error('Error fetching company list:', err);
       }
     })

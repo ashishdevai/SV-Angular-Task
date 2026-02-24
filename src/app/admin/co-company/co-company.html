@@ -196,44 +196,51 @@
   </div>
   <!-- ================= CO COMPANY LIST ================= -->
  <div class="table-responsive mt-4">
-
   <table class="table table-bordered table-striped">
 
     <thead>
       <tr>
-        <th>CoCompany</th>
-        <th>Mobile</th>
         <th>Company</th>
+        <th>Contact</th>
+        <th>Mobile</th>
         <th>Country</th>
-        <th>Action</th>
+        <th>Status</th>
+        <th>Active</th>
+        <th>Register Date</th>
       </tr>
     </thead>
 
     <tbody>
 
-      <tr *ngFor="let c of coCompanyTable; let i = index">
-
-        <td>{{ c.name }}</td>
-        <td>{{ c.mobile }}</td>
-        <td>{{ c.company }}</td>
+      <tr *ngFor="let c of coCompanyTable">
+        <td>{{ c.name }} </td>
+        <td>{{ c.contactNo }}</td>
+        <td>{{ c.mobileNo }}</td>
         <td>{{ c.country }}</td>
-
         <td>
-          <button class="btn btn-sm btn-primary me-2">👁</button>
-          <button class="btn btn-sm btn-warning me-2">✏</button>
-          <button class="btn btn-sm btn-danger">🗑</button>
+          <span class="badge"
+            [ngClass]="{
+              'bg-success': c.approvalStatus === 'APPROVED',
+              'bg-warning': c.approvalStatus === 'PENDING',
+              'bg-danger': c.approvalStatus === 'REJECTED'
+            }">
+            {{ c.approvalStatus }}
+          </span>
         </td>
 
-      </tr>
+        <td>
+          {{ c.isActive ? 'Yes' : 'No' }}
+        </td>
 
-      <tr *ngIf="!coCompanyTable.length">
-        <td colspan="5" class="text-center">No Data</td>
+        <td>
+          {{ c.registerDate | date:'medium' }}
+        </td>
+
       </tr>
 
     </tbody>
 
   </table>
-
- </div>
+</div>
 
 </form>
